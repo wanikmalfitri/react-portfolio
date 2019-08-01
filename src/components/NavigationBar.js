@@ -1,54 +1,39 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Container, Row, Col } from 'react-bootstrap';
-import styled from 'styled-components';
-
-const Styles = styled.div`
-  .navbar {
-    background-color: #222;
-  }
-  a, .navbar-brand, .navbar-nav .nav-link {
-    color: #bbb;
-    &:hover {
-      color: white;
-    }
-  }
-`;
+import React from "react";
+import { Link } from "react-router-dom";
+import { Nav, Navbar } from "react-bootstrap";
 
 export const NavigationBar = () => (
-  <Styles>
-    <header>
-    <Container>
-      <Row>
-        <Col md={3} lg={8}>
-          <h2 id='top'>WIF</h2>
-        </Col>
-        <Col md={9} lg={4}>
-          <ul id='menu_items' className="menu_items">
-            <li className='nav-item'>
-              <a href='#top' className='active menu_item nav-link slide-horizontal'>Home</a>
-            </li>
-            <li className='nav-item'>
-              <a href='#about' className='active menu_item nav-link slide-horizontal'>About Me</a>
-            </li>
-            <li className='nav-item'>
-              <a href='#skills' className='active menu_item nav-link slide-horizontal'>Skills</a>
-            </li>
-            <li className='nav-item'>
-              <a href='#portfolio' className='active menu_item nav-link slide-horizontal'>Portfolio</a>
-            </li>
-            <li className='nav-item'>
-              <a href='#contact' className='active menu_item nav-link slide-horizontal'>Contact</a>
-            </li>
-          </ul>
-   
-                        <div class="nav-btn">
-                            <span class="ion-android-menu"></span>
-                        </div>
-        </Col>
-      </Row>
-    </Container>
-    </header>
-    
-  </Styles >
-)
+  <Navbar className="bg-dark" fixed="top" expand="lg">
+    <Navbar.Brand href="/">WIF</Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse className="navbar-dark" id="basic-navbar-nav">
+      <Nav className="ml-auto">
+        <Nav.Item>
+          <Nav.Link>
+            <Link to="/">HOME</Link>
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link>
+            <Link to="/#about">ABOUT</Link>
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link>
+            <Link to="/#skills">SKILLS</Link>
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link>
+            <Link to="/#portfolio">PORTFOLIO</Link>
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link>
+            <Link to="/contact">CONTACT</Link>
+          </Nav.Link>
+        </Nav.Item>
+      </Nav>
+    </Navbar.Collapse>
+  </Navbar>
+);
