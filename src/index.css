@@ -1,5 +1,463 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+/* ==========================================================================
+    01. GOOGLE FONTS
+========================================================================== */
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700');
+
+/* ==========================================================================
+    02. DEFAULT CSS
+========================================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0;
 }
+
+html,
+body {
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 170%;
+    background-color: #030303;
+}
+
+.layout-fixed {
+    padding-right: 17px;
+}
+
+::-moz-selection {
+    background: #fff;
+    color: #333;
+    text-shadow: none;
+}
+
+::selection {
+    background: #fff;
+    color: #333;
+    text-shadow: none;
+}
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+a {
+    display: inline-block;
+    -webkit-transition: .25s;
+    transition: .25s;
+}
+
+a:hover,
+a:active {
+    text-decoration: none;
+    outline: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    padding: 0;
+    margin: 0;
+}
+
+#hero {
+  height: 100vh;
+}
+
+/* ==========================================================================
+   03. COMMON CSS
+========================================================================== */
+
+.wrapper {
+  padding: 100px 0;
+}
+
+.overlay{
+  position: relative;
+  z-index: 1;
+}
+
+.overlay::after {
+position: absolute;
+content: "";
+height: 100%;
+width: 100%;
+top: 0;
+left: 0;
+background-color: #000;
+z-index: -1;
+opacity: .6;
+}
+
+.vegas-overlay {
+background: #000;
+opacity: .7;
+}
+
+.landing_wrapper {
+height: 100%;
+background-color: #000;
+background-position: center center;
+background-size: cover;
+background-repeat: no-repeat;
+}
+
+.text_no_select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.section_title {
+font-size: 30px;
+font-weight: 100;
+margin-bottom: 130px;
+text-transform: capitalize;
+position: relative;
+display: inline-block;
+z-index: 1;
+color: #fff;
+letter-spacing: 1px;
+line-height: 0.8;
+}
+
+.section_title::before,
+.section_title::after {
+position: absolute;
+content: "";
+height: 50px;
+width: 2px;
+background: rgb(0,123,255);
+background: linear-gradient(180deg, rgba(0,123,255,1) 0%, rgba(0,123,255,0.05644255993412994) 100%);
+left: 50%;
+margin-left: -6px;
+z-index: -1;
+top: calc(100% + 25px);
+border-bottom-left-radius: 50%;
+border-bottom-right-radius: 50%;
+}
+
+.section_title::before {
+  height: 35px;
+  left: calc(50% + 6px);
+}
+
+.button {
+padding: 8px 25px 0 25px;
+background-color: #007bff;
+border: 1px solid transparent;
+margin-top: 30px;
+color: #fff;
+text-transform: uppercase;
+letter-spacing: 1px;
+position: relative;
+overflow: hidden;
+z-index: 1;
+font-size: 15px;
+font-weight: 600;
+}
+
+.button::after {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 0;
+  background-color: #111111;
+  top: 0;
+  right: 0;
+  -webkit-transition: .5s;
+  transition: .5s;
+  z-index: -1;
+}
+
+.button:hover::after {
+  width: 100%;
+  top: 0;
+  right: auto;
+  left: 0;
+}
+
+.button:hover {
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+/* ==========================================================================
+ 04. LANDING WRAPPER
+========================================================================== */
+
+/* HEADER STYLE start */
+
+header {
+  height: 85px;
+  line-height: 85px;
+  width: 100%;
+  position: fixed;
+  transition: background .3s;
+  -webkit-transition: background .3s;
+  -moz-transition: background .3s;
+  -ms-transition: background .3s;
+  -o-transition: background .3s;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.layout-fixed header {
+  width: calc(100% - 17px);
+}
+
+.header_fixed {
+background-color: rgba(17, 17, 17, 0.9);
+}
+
+.header_bg {
+  background-color: #222329;
+}
+
+.logo a {
+color: #fff;
+}
+
+.logo img {
+height: 20px;
+}
+
+.nav-btn {
+display: none;
+}
+
+.menu_items {
+  text-align: right;
+}
+
+.menu_items li {
+  display: inline-block;
+}
+
+.menu_item {
+padding: 0 20px;
+font-weight: 500;
+color: #fff;
+position: relative;
+}
+
+.menu_items .menu_item::after {
+position: absolute;
+content: "";
+height: 12px;
+width: 50%;
+top: 0;
+left: calc(50% - 25%);
+z-index: -1;
+border-radius: 50px;
+transform: scale(0);
+-webkit-transform: scale(0);
+-moz-transform: scale(0);
+-ms-transform: scale(0);
+-o-transform: scale(0);
+}
+
+.menu_items .menu_item.active::after {
+top: 34%;
+background: #007bff;
+transform: scale(1);
+-webkit-transform: scale(1);
+-moz-transform: scale(1);
+-ms-transform: scale(1);
+-o-transform: scale(1);
+transition: .3s;
+-webkit-transition: .3s;
+-moz-transition: .3s;
+-ms-transition: .3s;
+-o-transition: .3s;
+}
+
+.menu_items li:last-child .menu_item {
+padding-right: 0;
+}
+
+.menu_items li:last-child .menu_item.active::after {
+left: calc(50% - 25% + 10px);
+}
+
+/* HEADER STYLE  end */
+
+
+
+
+
+
+/* ==========================================================================
+   11. CONTACT WRAPPER
+========================================================================== */
+
+.contact_wrapper {
+	background-color: #111;
+	padding: 100px 0;
+	color: #fff;
+	border-radius: 5px;
+	margin-bottom: 100px;
+}
+
+.contact_item {
+    margin-bottom: 30px;
+    color: #b7b7b7;
+}
+
+.contact_item h5 {
+	color: #fff;
+	margin-bottom: 3px;
+	text-transform: capitalize;
+	padding-left: 15px;
+	position: relative;
+	font-size: 16px;
+}
+
+.contact_item h5::after {
+	position: absolute;
+	content: "";
+	height: 7px;
+	width: 7px;
+	bottom: 7px;
+	left: 0;
+	background: #007bff;
+}
+
+.input_field {
+    width: 100%;
+    background-color: transparent;
+    color: #fff;
+    margin-bottom: 30px;
+    padding: 8px 12px;
+    border: 0;
+    border: 1px solid #888;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+}
+
+.input_field:focus {
+    border: 1px solid #007bff;
+}
+
+textarea.input_field {
+    resize: none;
+    height: 120px;
+}
+
+button.button {
+    outline: 0;
+    margin-top: 0;
+    cursor: pointer;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+}
+
+/* -- FORM Validation style start */
+
+.error {
+    color: #da321e;
+    margin-bottom: 30px;
+}
+
+.success {
+    color: #14ba3a;
+    margin-bottom: 30px;
+}
+
+.inputEmpty {
+    border-color: #da321e;
+}
+
+.inputNotEmpty {
+    border-color: #fff;
+}
+
+.inputEmpty::-webkit-input-placeholder {
+    color: #da321e;
+    opacity: 1;
+}
+
+.inputEmpty::-moz-placeholder {
+    color: #da321e;
+    opacity: 1;
+}
+
+.inputEmpty:-ms-input-placeholder {
+    color: #da321e;
+    opacity: 1;
+}
+
+.inputEmpty:-moz-placeholder {
+    color: #da321e;
+    opacity: 1;
+}
+
+/* FORM Validation style end */
+
+/* ==========================================================================
+   12. FOOTER WRAPPER
+========================================================================== */
+
+footer {
+	background-color: #111;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	position: relative;
+	text-align: center;
+	padding: 80px 15px;
+}
+
+.go_top {
+	position: absolute;
+	color: #fff;
+	font-size: 30px;
+	height: 80px;
+	width: 50px;
+	left: 50%;
+	margin-left: -25px;
+	line-height: 80px;
+	background: #007bff;
+	text-align: center;
+	z-index: 9;
+	top: -40px;
+}
+
+.go_top:hover {
+    background: #005dc0;
+    color: #fff;
+	line-height: 70px;
+}
+
+footer .social_links {
+	margin-bottom: 35px;
+	margin-top: 10px;
+}
+
+footer p {
+	color: #666;
+}
+
+footer p span {
+	color: #fff;
+}
+
